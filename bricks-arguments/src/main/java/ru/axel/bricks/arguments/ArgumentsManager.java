@@ -20,12 +20,12 @@ public abstract class ArgumentsManager {
         }
     }
 
-    public Optional<String> findArgByName(String name) {
+    public final @NotNull Optional<String> findArgByName(String name) {
         final Stream<String> appConfigStream = Arrays.stream(arguments).filter(arg -> arg.startsWith(name + "="));
         return appConfigStream.findFirst();
     }
 
-    public String getArgValue(@NotNull String argRawString) {
+    public final String getArgValue(@NotNull String argRawString) {
         final String[] value = argRawString.split("=");
 
         if (value.length > 1) return value[1];

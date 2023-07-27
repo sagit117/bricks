@@ -25,7 +25,7 @@ public abstract class LoggerFactory {
      * @param level уровень лога.
      * @return объект логера с форматом по умолчанию.
      */
-    public @NotNull Logger getLogger(@NotNull Class<?> tClass, Level level) {
+    public final @NotNull Logger getLogger(@NotNull Class<?> tClass, Level level) {
         final Logger logger = getLoggerInstance(tClass, level);
         setHandler(logger, handler, formatterInstance);
 
